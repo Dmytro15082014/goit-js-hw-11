@@ -4,3 +4,19 @@
 // clearGallery(). Ця функція нічого не приймає та повинна очищати вміст контейнера галереї. Нічого не повертає.
 // showLoader(). Ця функція нічого не приймає, повинна додавати клас для відображення лоадера. Нічого не повертає.
 // hideLoader(). Ця функція нічого не приймає, повинна прибирати клас для відображення лоадера. Нічого не повертає.
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+const gallery = document.querySelector(".gallery");
+
+const createGallery = (images)=> {
+    const constructor = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
+       `<li class="image-item">
+            <div class="gallery-card"><a href="${webformatURL}"><img src="${largeImageURL}" alt="${tags}"/></a></div>
+        </li>`).join("");
+    const galleryConstructor = new SimpleLightbox('.gallery-card a', { captionDelay: "250" });
+    gallery.innerHTML = constructor;
+    galleryConstructor.refresh();
+}
+
+export default createGallery;
