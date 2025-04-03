@@ -107,4 +107,42 @@ main:has(.back-link) {
 .form>button:hover{
   background-color: #6c8cff;
 }
-.gallery {}
+.gallery {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.image-item{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #808080;
+}
+.image{
+  width: 360px;
+  height: 152px;  
+}
+.gallery-card{
+  
+}
+.image-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 0px;
+}
+.image-info>li{
+  text-align: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
