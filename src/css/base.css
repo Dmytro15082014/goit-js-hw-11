@@ -33,6 +33,7 @@ main {
 main:has(.back-link) {
   text-align: center;
 }
+
 /* loader */
 .loader {
   width: 48px;
@@ -71,6 +72,19 @@ main:has(.back-link) {
     opacity: 0;
   }
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* form */
 .form {
   display: flex;
@@ -107,11 +121,13 @@ main:has(.back-link) {
 .form>button:hover{
   background-color: #6c8cff;
 }
+
+/* gallery */
 .gallery {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  justify-content: center;
+  padding: 0 16px;
 }
 .image-item{
   display: flex;
@@ -122,9 +138,6 @@ main:has(.back-link) {
   width: 360px;
   height: 152px;  
 }
-.gallery-card{
-  
-}
 .image-info{
   display: flex;
   align-items: center;
@@ -134,15 +147,6 @@ main:has(.back-link) {
 .image-info>li{
   text-align: center;
 }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+.sl-image>img{
+  width: 1280px;
 }

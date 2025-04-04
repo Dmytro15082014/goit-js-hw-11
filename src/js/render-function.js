@@ -1,28 +1,32 @@
-// У файлі render-functions.js створи екземпляр SimpleLightbox для роботи з модальним вікном та зберігай функції для відображення елементів інтерфейсу:
-
-// createGallery(images). Ця функція повинна приймати масив images, створювати HTML-розмітку для галереї, додавати її в контейнер галереї та викликати метод екземпляра SimpleLightbox refresh(). Нічого не повертає.
-// clearGallery(). Ця функція нічого не приймає та повинна очищати вміст контейнера галереї. Нічого не повертає.
-// showLoader(). Ця функція нічого не приймає, повинна додавати клас для відображення лоадера. Нічого не повертає.
-// hideLoader(). Ця функція нічого не приймає, повинна прибирати клас для відображення лоадера. Нічого не повертає.
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector(".gallery");
+const spinner = document.querySelector(".loader");
+const galleryConstructor = new SimpleLightbox('.gallery-card a', { captionsData: "alt", captionDelay: "250" });
 
-const createGallery = (images)=> {
-    const constructor = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
+export default function createGallery(images){
+    gallery.innerHTML = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
        `<li class="image-item">
-            <div class="gallery-card"><a href="${webformatURL}"><img src="${largeImageURL}" alt="${tags}" class="image"/></a></div>
+            <div class="gallery-card"><a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" class="image"/></a></div>
             <ul class="image-info">
                 <li>Likes<p>${likes}</p></li>
                 <li>Views<p>${views}</p></li>
                 <li>Comments<p>${comments}</p></li>
                 <li>Downloads<p>${downloads}</p></li>
             </ul>
-        </li>`).join("");
-    const galleryConstructor = new SimpleLightbox('.gallery-card a', { captionDelay: "250" });
-    gallery.innerHTML = constructor;
+        </li>`).join("");    
     galleryConstructor.refresh();
-}
+};
 
-export default createGallery;
+export const clearGallery = () => {
+    gallery.innerHTML = "";
+};
+
+export const showLoader = () => {
+    spinner.classList.remove("visually-hidden");
+};
+
+export const hideLoader = () => {
+    spinner.classList.add("visually-hidden");
+};
