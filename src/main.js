@@ -1,8 +1,8 @@
 import getImagesByQuery from "./js/pixabay-api";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import createGallery from "./js/render-function";
-import { clearGallery, showLoader, hideLoader } from "./js/render-function"
+import createGallery from "./js/render-functions";
+import { clearGallery, showLoader, hideLoader } from "./js/render-functions"
 
 const searchForm = document.querySelector(".form");
 
