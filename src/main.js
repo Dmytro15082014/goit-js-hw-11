@@ -37,13 +37,13 @@ function searchImage(e) {
 };
 
 const messageError = {
+    title: "Error",
+    titleColor: '#fafafb',
     message: "Sorry, there are no images matching your search query. Please try again!",
-    theme: "light",
     iconColor: "#fafafb",
     color: "#ef4040",
     messageColor: "#fafafb",
     position: "topRight",
     messageSize: "16px",
     messageSize: "150%",
-    iconUrl: "./img/bi_x-octagon.png"
 };
