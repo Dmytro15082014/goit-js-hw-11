@@ -13,20 +13,27 @@ function searchImage(e) {
     showLoader();
     clearGallery()
     const query = searchForm.elements[0].value.toLowerCase().trim();
+    if (!(query.length > 0)) {
+        iziToast.show(messageError);
+        hideLoader();
+        searchForm.reset();
+        return
+    };
     getImagesByQuery(query)
         .then((response) => {
             const dataImg = response.data.hits;
-            if(!(dataImg.length)){
+            if (!(dataImg.length)) {
                 iziToast.show(messageError);
                 return;
             }
-            createGallery(dataImg);            
-       })
+            createGallery(dataImg);
+        })
         .catch((error) => console.log(error))
         .finally(() => {
             hideLoader();
             searchForm.reset();
         });
+    
 };
 
 const messageError = {
