@@ -28,7 +28,9 @@ function searchImage(e) {
             }
             createGallery(dataImg);
         })
-        .catch((error) => console.log(error))
+        .catch((error) =>{
+            messageError.message = error.message;
+            iziToast.show(messageError)})
         .finally(() => {
             hideLoader();
             searchForm.reset();
